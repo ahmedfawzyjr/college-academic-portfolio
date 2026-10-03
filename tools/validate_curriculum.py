@@ -42,9 +42,9 @@ def run_validation():
             print(f"  ✅ Found docs/{doc}")
 
     # 3. Check projects
-    for proj in ["capstone/ilearn-smart-education-platform", "cross-course/01-distributed-academic-service", "cross-course/02-networked-algorithm-visualizer"]:
+    for proj in ["capstone/ilearn-smart-education-platform", "cross-course/01 - Distributed-academic-service", "cross-course/02 - Networked-algorithm-visualizer"]:
         p = os.path.join(projects_dir, proj)
-        if not os.path.exists(p):
+        if not os.path.exists(p) and not os.path.exists(os.path.join(projects_dir, proj.lower())):
             errors.append(f"Missing project: {proj}")
         else:
             print(f"  ✅ Found projects/{proj}")

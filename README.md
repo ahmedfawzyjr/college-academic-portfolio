@@ -108,6 +108,249 @@ Runnable Implementation & Automated Test Suite
 
 ---
 
+## 🌳 Dynamic & Interactive Course Dependency Tree
+
+The interactive flowchart below maps out the complete prerequisite flow across all **50 courses** and **8 academic semesters**. 
+Each course node is **color-coded by its academic domain** and is **clickable** — select any course node to navigate directly to its knowledge base and syllabus.
+
+### 🎨 Academic Domain Legend
+| Indicator | Academic Specialization | Representative Courses |
+|:---:|---|---|
+| 🟦 **Blue** | **Core CS & Programming** | `CS111` C++, `CS211` Data Structures, `CS213` Algorithms, `CS313` Web Dev |
+| 🟧 **Amber** | **Systems & Hardware** | `EL101` Electronics, `CS221` Digital Logic, `CS222` Architecture, `CS321` OS |
+| 🟪 **Purple** | **AI & Data Science** | `CS441` AI, `CSC466` Data Mining, `CS444` DIP 1, `CSC465-ML` Machine Learning |
+| 🟩 **Emerald** | **Information Systems** | `IS101` IS Fundamentals, `IS211` DB 1, `IS312` DB 2, `IS331` System Analysis |
+| 🟌 **Indigo** | **Mathematics & Basic Sciences** | `MA101` Calculus 1, `PH101` Physics, `ST101` Stats, `CS201` Discrete Math |
+| 🟥 **Rose** | **Business & Economics** | `HU104` Management, `HU103` Economics, `HU201` Accounting, `IS321` Project Mgmt |
+| ⬛ **Slate** | **Humanities & Soft Skills** | `HU101` English 1, `HU202` Law & Ethics, `HU301` Tech Writing, `HU401` Innovation |
+| 🟨 **Gold** | **Graduation Project Capstone** | `CS499` iLearn Graduation Project Capstone (6 Credit Hours) |
+
+```mermaid
+flowchart TD
+    %% Custom Vibrant Domain Color Scheme
+    classDef core fill:#0284c7,stroke:#0369a1,color:#ffffff,font-weight:bold;
+    classDef systems fill:#d97706,stroke:#b45309,color:#ffffff,font-weight:bold;
+    classDef aidata fill:#7c3aed,stroke:#6d28d9,color:#ffffff,font-weight:bold;
+    classDef infosys fill:#059669,stroke:#047857,color:#ffffff,font-weight:bold;
+    classDef math fill:#4f46e5,stroke:#4338ca,color:#ffffff,font-weight:bold;
+    classDef business fill:#e11d48,stroke:#be123c,color:#ffffff,font-weight:bold;
+    classDef humanities fill:#475569,stroke:#334155,color:#ffffff,font-weight:bold;
+    classDef capstone fill:#f59e0b,stroke:#b45309,color:#000000,font-weight:bold,stroke-width:3px;
+
+    subgraph Y1S1["Year 1 — Semester 1 (16 Cr)"]
+        CS101["CS101<br/>Intro to Computer"]:::core
+        CS112["CS112<br/>Java Programming"]:::core
+        HU101["HU101<br/>Technical English 1"]:::humanities
+        HU104["HU104<br/>Principles of Management"]:::business
+        MA101["MA101<br/>Calculus 1"]:::math
+        PH101["PH101<br/>General Physics"]:::math
+    end
+
+    subgraph Y1S2["Year 1 — Semester 2 (16 Cr)"]
+        CS111["CS111<br/>C++ Programming"]:::core
+        EL101["EL101<br/>Computer Electronics"]:::systems
+        HU102["HU102<br/>Technical English 2"]:::humanities
+        HU103["HU103<br/>Principles of Economics"]:::business
+        IS101["IS101<br/>IS Fundamentals"]:::infosys
+        ST101["ST101<br/>Probability & Stats"]:::math
+    end
+
+    subgraph Y2S1["Year 2 — Semester 3 (17 Cr)"]
+        CS201["CS201<br/>Discrete Structures"]:::math
+        CS211["CS211<br/>Data Structures"]:::core
+        CS212["CS212<br/>OOP (C++)"]:::core
+        CS221["CS221<br/>Digital Logic"]:::systems
+        HU202["HU202<br/>Business Law & Ethics"]:::humanities
+        MA202["MA202<br/>Linear Algebra"]:::math
+    end
+
+    subgraph Y2S2["Year 2 — Semester 4 (14 Cr)"]
+        CS213["CS213<br/>Algorithms"]:::core
+        CS214["CS214<br/>Visual C#"]:::core
+        CS222["CS222<br/>Computer Arch"]:::systems
+        HU201["HU201<br/>Accounting"]:::business
+        IS211["IS211<br/>Database 1"]:::infosys
+    end
+
+    subgraph Y3S1["Year 3 — Semester 5 (20 Cr)"]
+        CS311["CS311<br/>Automata Theory"]:::core
+        CS313["CS313<br/>Web Programming"]:::core
+        CS314["CS314<br/>Python Programming"]:::core
+        CS331["CS331<br/>Computer Networks 1"]:::systems
+        CSC312["CSC312<br/>System Programming"]:::systems
+        IS321["IS321<br/>Project Management"]:::business
+        MA301["MA301<br/>Operations Research"]:::math
+    end
+
+    subgraph Y3S2["Year 3 — Semester 6 (21 Cr)"]
+        CS321["CS321<br/>Operating Systems"]:::systems
+        CS341["CS341<br/>Computer Graphics"]:::core
+        HU301["HU301<br/>Technical Writing"]:::humanities
+        HU302["HU302<br/>Marketing"]:::business
+        IS312["IS312<br/>Database 2"]:::infosys
+        IS331["IS331<br/>System Analysis & Design"]:::infosys
+        MA302["MA302<br/>Diff Equations"]:::math
+        TR301["TR301<br/>Office Skills"]:::humanities
+    end
+
+    subgraph Y4S1["Year 4 — Semester 7 (15 Cr)"]
+        CS441["CS441<br/>Artificial Intelligence"]:::aidata
+        CS451["CS451<br/>Info Security"]:::systems
+        CS491["CS491<br/>Special Topics in CS"]:::core
+        CSC465["CSC465<br/>Software Engineering"]:::core
+        CSC466["CSC466<br/>Data Mining"]:::aidata
+    end
+
+    subgraph Y4S2["Year 4 — Semester 8 (17 Cr)"]
+        CS415["CS415<br/>Mobile App Dev"]:::core
+        CS444["CS444<br/>Image Processing 1"]:::aidata
+        CS445["CS445<br/>Image Processing 2"]:::aidata
+        CSC465_ML["CSC465-ML<br/>Machine Learning"]:::aidata
+        EE242["EE242<br/>Logic Design (Self Study)"]:::systems
+        HU401["HU401<br/>Creative Thinking"]:::humanities
+    end
+
+    subgraph Y4CAP["Year 4 — Capstone Project (6 Cr)"]
+        CS499["🎓 CS499<br/>iLearn Graduation Project"]:::capstone
+    end
+
+    %% Prerequisite & Progression Relationships
+    CS101 --> CS111
+    CS101 --> IS211
+    CS101 --> CS331
+    CS101 --> TR301
+
+    CS111 --> CS211
+    CS111 --> CS212
+    CS111 --> CS341
+    CS111 --> CSC312
+    CS111 --> CS313
+    CS111 --> CS314
+
+    CS112 --> CS211
+    CS112 --> CS212
+
+    MA101 --> ST101
+    MA101 --> CS201
+    MA101 --> MA202
+    MA101 --> MA302
+
+    PH101 --> EL101
+    EL101 --> CS221
+    CS221 --> CS222
+    CS221 --> EE242
+
+    CS201 --> CS213
+    CS201 --> CS311
+    CS201 --> CS441
+    CS201 --> CS451
+
+    CS211 --> CS213
+    CS212 --> CS214
+    CS212 --> CSC465
+    CS212 --> CS415
+
+    CS222 --> CSC312
+    CS222 --> CS321
+    CSC312 --> CS321
+    CS222 --> CS331
+
+    IS101 --> IS211
+    IS211 --> IS312
+    IS211 --> IS331
+    IS211 --> CSC466
+    IS211 --> CS313
+
+    MA202 --> MA301
+    MA202 --> MA302
+    MA202 --> CS341
+    MA202 --> CSC465_ML
+    MA202 --> CS444
+
+    ST101 --> MA301
+    ST101 --> CSC466
+    ST101 --> CSC465_ML
+
+    CS213 --> CS441
+    CS441 --> CSC465_ML
+
+    CS331 --> CS451
+
+    CS341 --> CS444
+    CS444 --> CS445
+
+    IS331 --> CSC465
+
+    HU101 --> HU102
+    HU102 --> HU301
+    HU104 --> HU302
+    HU104 --> IS321
+
+    CS313 --> CS415
+    CS313 --> CS491
+
+    %% Capstone Integration
+    CSC465 --> CS499
+    CS313 --> CS499
+    IS312 --> CS499
+    CS415 --> CS499
+    CSC465_ML --> CS499
+
+    %% Clickable Interactive Navigation Links
+    click CS101 "courses/01-cs101-introduction-to-computer/README.md" "CS101 Introduction to Computer"
+    click CS112 "courses/02-cs112-java-programming/README.md" "CS112 Java Programming"
+    click HU101 "courses/03-hu101-technical-english-1/README.md" "HU101 Technical English 1"
+    click HU104 "courses/04-hu104-principles-of-management/README.md" "HU104 Principles of Management"
+    click MA101 "courses/05-ma101-mathematics-1/README.md" "MA101 Mathematics 1"
+    click PH101 "courses/06-ph101-general-physics/README.md" "PH101 General Physics"
+    click CS111 "courses/07-cs111-programming-language-1-cpp/README.md" "CS111 C++ Programming"
+    click EL101 "courses/08-el101-computer-electronics/README.md" "EL101 Computer Electronics"
+    click HU102 "courses/09-hu102-technical-english-2/README.md" "HU102 Technical English 2"
+    click HU103 "courses/10-hu103-principles-of-economics/README.md" "HU103 Principles of Economics"
+    click IS101 "courses/11-is101-information-systems-fundamentals/README.md" "IS101 Information Systems Fundamentals"
+    click ST101 "courses/12-st101-probability-and-statistics/README.md" "ST101 Probability & Statistics"
+    click CS201 "courses/13-cs201-discrete-structures/README.md" "CS201 Discrete Structures"
+    click CS211 "courses/14-cs211-data-structures/README.md" "CS211 Data Structures"
+    click CS212 "courses/15-cs212-programming-language-2-oop/README.md" "CS212 Object-Oriented Programming"
+    click CS221 "courses/16-cs221-digital-logic-design/README.md" "CS221 Digital Logic Design"
+    click HU202 "courses/17-hu202-business-law-and-ethics/README.md" "HU202 Business Law & Ethics"
+    click MA202 "courses/18-ma202-mathematics-2/README.md" "MA202 Mathematics 2"
+    click CS213 "courses/19-cs213-design-and-analysis-of-algorithms/README.md" "CS213 Design & Analysis of Algorithms"
+    click CS214 "courses/20-cs214-visual-programming-csharp/README.md" "CS214 Visual Programming (C#)"
+    click CS222 "courses/21-cs222-computer-architecture-and-organization/README.md" "CS222 Computer Architecture"
+    click HU201 "courses/22-hu201-principles-of-accounting/README.md" "HU201 Principles of Accounting"
+    click IS211 "courses/23-is211-database-systems-1/README.md" "IS211 Database Systems 1"
+    click CS311 "courses/24-cs311-automata-and-formal-languages/README.md" "CS311 Automata & Formal Languages"
+    click CS313 "courses/25-cs313-web-programming/README.md" "CS313 Web Programming"
+    click CS314 "courses/26-cs314-python-programming/README.md" "CS314 Python Programming"
+    click CS331 "courses/27-cs331-computer-networks-1/README.md" "CS331 Computer Networks 1"
+    click CSC312 "courses/28-csc312-system-programming/README.md" "CSC312 System Programming"
+    click IS321 "courses/29-is321-project-management/README.md" "IS321 Project Management"
+    click MA301 "courses/30-ma301-operations-research/README.md" "MA301 Operations Research"
+    click CS321 "courses/31-cs321-operating-systems/README.md" "CS321 Operating Systems"
+    click CS341 "courses/32-cs341-computer-graphics/README.md" "CS341 Computer Graphics"
+    click HU301 "courses/33-hu301-technical-report-writing/README.md" "HU301 Technical Report Writing"
+    click HU302 "courses/34-hu302-principles-of-marketing/README.md" "HU302 Principles of Marketing"
+    click IS312 "courses/35-is312-database-systems-2/README.md" "IS312 Database Systems 2"
+    click IS331 "courses/36-is331-system-analysis-and-design/README.md" "IS331 System Analysis & Design"
+    click MA302 "courses/37-ma302-mathematics-3/README.md" "MA302 Mathematics 3"
+    click TR301 "courses/38-tr301-microsoft-office-skills-training/README.md" "TR301 Microsoft Office Skills Training"
+    click CS441 "courses/39-cs441-artificial-intelligence/README.md" "CS441 Artificial Intelligence"
+    click CS451 "courses/40-cs451-information-security/README.md" "CS451 Information Security"
+    click CS491 "courses/41-cs491-special-topics-in-computer-science/README.md" "CS491 Special Topics in CS"
+    click CSC465 "courses/42-csc465-software-engineering/README.md" "CSC465 Software Engineering"
+    click CSC466 "courses/43-csc466-data-mining/README.md" "CSC466 Data Mining"
+    click CS415 "courses/44-cs415-mobile-application-development/README.md" "CS415 Mobile App Development"
+    click CS444 "courses/45-cs444-digital-image-processing-1/README.md" "CS444 Digital Image Processing 1"
+    click CS445 "courses/46-cs445-digital-image-processing-2/README.md" "CS445 Digital Image Processing 2"
+    click CSC465_ML "courses/47-csc465-machine-learning/README.md" "CSC465-ML Machine Learning"
+    click EE242 "courses/48-ee242-logic-design-self-study/README.md" "EE242 Logic Design (Self Study)"
+    click HU401 "courses/49-hu401-creative-thinking/README.md" "HU401 Creative Thinking & Innovation"
+    click CS499 "courses/50-cs499-graduation-project/README.md" "CS499 Graduation Project Capstone"
+```
+
+---
+
 ## 📁 Repository Directory Structure
 
 ```text
