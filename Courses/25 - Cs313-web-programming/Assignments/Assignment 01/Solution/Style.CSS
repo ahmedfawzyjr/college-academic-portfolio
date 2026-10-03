@@ -1,0 +1,4 @@
+body { margin: 0; background: #090d16; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #f8fafc; }
+.container { display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+.card { background: #1e293b; padding: 2.5rem; border-radius: 12px; max-width: 500px; border: 1px solid #334155; }
+h2 { color: #38bdf8; margin-top: 0; }
