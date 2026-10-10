@@ -1,1 +1,0 @@
--- TODO: Write SELECT query for average salary per department
